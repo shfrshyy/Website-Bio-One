@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tentang Bio One</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <div class="logo-container">
+        <img src="C:\Users\Lenov\OneDrive\เอกสาร\logo bio one.jpg" alt="logo bio one">
+        <h1>📖 Tentang Bio One</h1>
+    </div>
+        <nav>
+            <a href="index.html">Beranda</a>
+			<a href="login.html">Login</a>
+            <a href="about.html">Tentang</a>
+			<a href="film.html">Film</a>
+			<a href="penulis.html">Penulis</a>
+			<button onclick="logout()">Logout</button>
+
+        </nav>
+		<body>
+
+    </header>
+	
+	<script>
+  if (!localStorage.getItem("isLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
+    <main>
+        <section class="profile">
+            <img src="C:\Users\Lenov\Downloads\bio one.jpg" alt="bio one" class="main-photo">
+            <h2>Profil Singkat</h2>
+            <ul>
+                <li><strong>Nama lengkap:</strong> Juan Bio One Idal Haris Subiantoro Tanevi Proboatmojo Tan</li>
+				<li><strong>Nama panggung:</strong> Bio One</li>
+                <li><strong>Lahir:</strong> Palu, 1 Januari 1998</li>
+                <li><strong>Pekerjaan:</strong> Aktor & Model</li>
+                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/bojvoyej?igsh=OGR1eHNpdWZ2bjhq" target="_blank">@bojvoyej</a></li>
+            </ul>
+            <p>Bio One dikenal sebagai aktor yang total dan idealis dalam berakting. Ia pernah hidup sebagai anak punk jalanan selama sebulan demi mendalami peran di film Pretentious Heroes, serta rela mengubah penampilannya secara drastis untuk memerankan Gepeng dalam film Srimulat: Hil yang Mustahal. Meski memulai karier sebagai model dan bintang sinetron sejak kecil, ia memilih menjauh dari peran komersial dan lebih fokus pada film-film yang menantang secara akting, bahkan sempat vakum untuk menemukan jati diri dan mendalami seni peran secara lebih serius.</p>
+			<button onclick="logout()" id="logoutBtn">Logout</button>
+		</section>
+    </main>
+    <footer>
+        <p>&copy; 2025 | Website Penggemar Bio One</p>
+    </footer>
+
+    <script src="script.js"></script>
+	<script>
+  // Cek status login
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<script>
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+  }
+</script>
+
+	
+	<!-- JavaScript Transisi Halaman -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 1;
+        });
+
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+                if (target.startsWith('#') || target === '' || target.startsWith('mailto:') || target.startsWith('javascript:')) return;
+                e.preventDefault();
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

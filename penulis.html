@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Penulis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>✍️ Tentang Penulis Website</h1>
+    </header>
+
+    <section class="penulis-section">
+    <h2>Profil Tim Pembuat Website</h2>
+    <div class="penulis-list">
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\shabrina.jpg" alt="shabrina">
+        <p>Shabrina Khairina Al Faradisa</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\andhini.jpg" alt="andhini">
+        <p>Andhini Syifa Putri Hanindar</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\aurel.jpg" alt="aurel">
+        <p>Assifa Aurelia</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\zara.jpg" alt="zara">
+        <p>Azzahra Maulida Putri Utomo</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\n.jpg" alt="Khaira Aliya Faadhillah">
+        <p>Khaira Aliya Faadhillah</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\jauza.jpg" alt="Jauza Athalia Ardin">
+        <p>Jauza Athalia Ardin</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\alifia.jpg" alt="alifia">
+        <p>Alifia Nur Azizah</p>
+      </div>
+
+      <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\o.jpg" alt="najwa">
+        <p>Najwa Putri Salsabila</p>
+      </div>
+	  
+	  <div class="penulis-item">
+        <img src="C:\Users\Lenov\Downloads\p.jpg" alt="hafiz">
+        <p>Muhammad Hafizhan Islami</p>
+      </div>
+	  </section>
+
+    <footer>
+        <p>&copy; 2025 | Website Penggemar Bio One</p>
+    </footer>
+	
+	<!-- JavaScript Transisi Halaman -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 1;
+        });
+
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+                if (target.startsWith('#') || target === '' || target.startsWith('mailto:') || target.startsWith('javascript:')) return;
+                e.preventDefault();
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Website Bio One</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login ke Website</h2>
+
+    <input type="text" id="username" placeholder="Nama Pengguna">
+    <input type="password" id="password" placeholder="Kata Sandi">
+    <button onclick="loginManual()">Login Manual</button>
+
+    <div class="divider"></div>
+
+    <div id="g_id_onload"
+         data-client_id="76934902395-26iqn3urk6tooo6a5g3kto033ake21vr.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+  </div>
+
+  <script>
+    function loginManual() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && pass === "admin123") {
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "about.html";
+      } else {
+        alert("Username atau password salah!");
+      }
+    }
+
+    function handleCredentialResponse(response) {
+      console.log("Google JWT: " + response.credential);
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "about.html";
+    }
+  </script>
+</body>
+</html>

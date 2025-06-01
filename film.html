@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film & Series - Bio One</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+		<h1>📺 Film & Series Bio One</h1>
+		<nav>
+            <a href="index.html">Beranda</a>
+			<a href="login.html">Login</a>
+            <a href="about.html">Tentang</a>
+			<a href="film.html">Film</a>
+			<a href="penulis.html">Penulis</a>
+        </nav>
+    </header>
+	
+	<script>
+  if (!localStorage.getItem("isLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
+
+   <section class="film-list">
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\f.jpg" alt="Eggnoid"/>
+    <h3>Persahabatan Bagai Kepompong (2021)</h3>
+  </div>
+
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\l.jpg" alt="Sin" />
+    <h3>V/H/S/94 (2021)</h3>
+  </div>
+
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\e.jpg" alt="Dear Nathan" />
+    <h3>Sleep Call (2023)</h3>
+  </div>
+
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\d.jpg" alt="Bukan Cinderella" />
+    <h3>Srimulat: Hidup Memang Komedi (2023)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\c.jpg" alt="Bukan Cinderella" />
+    <h3>Balada Si Roy (2019)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\b7afb508-67ee-4d35-bc01-5ea317097c2a.jpg" alt="Bukan Cinderella" />
+    <h3>Srimulat: Hil yang Mustahal (2022)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\a.jpg" alt="Bukan Cinderella" />
+    <h3>Rembulan Tenggelam Di Wajahmu (2019)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\k.jpg" alt="Bukan Cinderella" />
+    <h3>Write Me a Love Song (2021)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\i.jpg" alt="Bukan Cinderella" />
+    <h3>Rentang Kisah (2023)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\m.jpg" alt="Bukan Cinderella" />
+    <h3>Pretty Little Liars (2021)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\h.jpg" alt="Bukan Cinderella" />
+    <h3>Catatan Harian Aisyah (2018)</h3>
+  </div>
+  
+  <div class="film-item">
+    <img src="C:\Users\Lenov\Downloads\g.jpg" alt="Bukan Cinderella" />
+    <h3>Healing The Series (2022)</h3>
+  </div>
+</section>
+
+    <footer>
+        <p>&copy; 2025 | Website Penggemar Bio One</p>
+    </footer>
+	<!-- JavaScript Transisi Halaman -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 1;
+        });
+
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+                if (target.startsWith('#') || target === '' || target.startsWith('mailto:') || target.startsWith('javascript:')) return;
+                e.preventDefault();
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>

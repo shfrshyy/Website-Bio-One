@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Bio One - Aktor Indonesia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🌟 Bio One</h1>
+        <nav>
+            <a href="index.html">Beranda</a>
+			<a href="login.html">Login</a>
+            <a href="about.html">Tentang</a>
+			<a href="film.html">Film</a>
+			<a href="penulis.html">Penulis</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <img src="C:\Users\Lenov\Downloads\bio one  photo.jpg" alt="bio one photo" class="main-photo">
+            <h2>Selamat datang di situs penggemar Bio One!</h2>
+            <p>Bio One adalah aktor muda berbakat Indonesia yang telah membintangi berbagai film, sinetron, dan web series. Karakternya yang unik dan penuh ekspresi membuatnya banyak disukai.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 | Dibuat oleh Penggemar Bio One</p>
+    </footer>
+
+    <script src="script.js"></script>
+	
+	<<!-- JavaScript Transisi Halaman -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = 1;
+        });
+
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const target = this.getAttribute('href');
+                if (target.startsWith('#') || target === '' || target.startsWith('mailto:') || target.startsWith('javascript:')) return;
+                e.preventDefault();
+                document.body.style.opacity = 0;
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+                

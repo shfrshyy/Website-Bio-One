@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<h<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Akun - Bio One</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2>Buat Akun Baru</h2>
+    
+    <form onsubmit="return handleRegister(event)">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Kata Sandi</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Daftar</button>
+
+      <p class="google-login">
+        atau
+        <a href="#" class="google-btn">Daftar dengan Google</a>
+      </p>
+
+      <p class="register-link">
+        Sudah punya akun? <a href="login.html">Masuk di sini</a>
+      </p>
+    </form>
+  </div>
+  
+  <script>
+  function handleRegister(event) {
+    event.preventDefault();
+
+    // Simulasikan pendaftaran berhasil
+    localStorage.setItem("loggedIn", "true");
+
+    // Redirect ke halaman login
+    window.location.href = "login.html";
+    return false;
+  }
+</script>
+  
+  <script>
+    // Saat klik tautan, beri efek fade-out
+    document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:')) return;
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = href;
+            }, 300);
+        });
+    });
+</script>
+</body>
+</html>
