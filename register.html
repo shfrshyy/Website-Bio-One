@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<h<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Daftar Akun - Bio One</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Google Sign-In SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="login-body">
   <div class="login-container">
@@ -21,47 +23,62 @@
       <input type="password" id="password" name="password" required>
 
       <button type="submit">Daftar</button>
-
-       <div class="divider"></div>
-
-    <div id="g_id_onload"
-         data-client_id="76934902395-26iqn3urk6tooo6a5g3kto033ake21vr.apps.googleusercontent.com"
-         data-context="signin"
-         data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
-         data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin"
-         data-type="standard"
-         data-shape="rectangular"
-         data-theme="outline"
-         data-text="sign_in_with"
-         data-size="large"
-         data-logo_alignment="left">
-    </div>
-      
-  <div>
-      <p class="register-link">
-        Sudah punya akun? <a href="login.html">Masuk di sini</a>
-      </p>
     </form>
+
+    <div class="google-login">
+      <p>atau</p>
+      <!-- Google Sign-In button -->
+      <div id="g_id_onload"
+           data-client_id="76934902395-26iqn3urk6tooo6a5g3kto033ake21vr.apps.googleusercontent.com"
+           data-context="signup"
+           data-ux_mode="popup"
+           data-callback="handleGoogleRegister"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+           data-type="standard"
+           data-shape="rectangular"
+           data-theme="outline"
+           data-text="continue_with"
+           data-size="large"
+           data-logo_alignment="left">
+      </div>
+    </div>
+
+    <p class="register-link">
+      Sudah punya akun? <a href="login.html">Masuk di sini</a>
+    </p>
   </div>
-  
-  <script>
-  function handleRegister(event) {
-    event.preventDefault();
 
-    // Simulasikan pendaftaran berhasil
-    localStorage.setItem("loggedIn", "true");
-
-    // Redirect ke halaman login
-    window.location.href = "login.html";
-    return false;
-  }
-</script>
-  
+  <!-- Script untuk daftar manual -->
   <script>
-    // Saat klik tautan, beri efek fade-out
+    function handleRegister(event) {
+      event.preventDefault();
+
+      // Simulasikan pendaftaran berhasil
+      localStorage.setItem("loggedIn", "true");
+
+      // Redirect ke halaman login
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- Script untuk daftar dengan Google -->
+  <script>
+    function handleGoogleRegister(response) {
+      const jwt = response.credential;
+      const payload = JSON.parse(atob(jwt.split('.')[1]));
+
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("username", payload.name);
+      localStorage.setItem("email", payload.email);
+
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- Optional: Efek transisi -->
+  <script>
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -73,6 +90,6 @@
             }, 300);
         });
     });
-</script>
+  </script>
 </body>
 </html>
