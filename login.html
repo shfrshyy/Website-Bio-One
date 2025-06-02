@@ -2,49 +2,49 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login Website Bio One</title>
+  <title>Login - Website Bio One</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body>
+<body class="login-body">
   <div class="login-container">
-    <h2>Login ke Website</h2>
+    <h2>Masuk ke Website</h2>
 
+    <!-- Form Login Manual -->
     <input type="text" id="username" placeholder="Nama Pengguna">
     <input type="password" id="password" placeholder="Kata Sandi">
-    <button onclick="loginManual()">Login</button>
+    <button onclick="loginManual()">Login Manual</button>
 
-   <div class="divider"></div>
+    <div class="divider">atau</div>
 
+    <!-- Login dengan Google -->
     <div id="g_id_onload"
          data-client_id="76934902395-26iqn3urk6tooo6a5g3kto033ake21vr.apps.googleusercontent.com"
-         data-context="login"
+         data-context="signin"
          data-ux_mode="popup"
-         data-callback="handleCredentialResponse"
+         data-callback="handleGoogleLogin"
          data-auto_prompt="false">
     </div>
-    <div class="g_id_login"
+
+    <div class="g_id_signin"
          data-type="standard"
          data-shape="rectangular"
          data-theme="outline"
-         data-text="log_in_with"
+         data-text="sign_in_with"
          data-size="large"
          data-logo_alignment="left">
     </div>
-    
-  <div>
-  <p class="login-link">
-        belum punya akun? <a href="register.html">daftar di sini</a>
-      </p>
-    </form>
+
+    <p class="register-link">Belum punya akun? <a href="register.html">Daftar di sini</a></p>
   </div>
 
+  <!-- Script Login Manual -->
   <script>
     function loginManual() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-      if (user === "admin" && pass === "admin123") {
+      if (username === "admin" && password === "admin123") {
         localStorage.setItem("isLoggedIn", "true");
         window.location.href = "about.html";
       } else {
@@ -52,9 +52,13 @@
       }
     }
 
-    function handleCredentialResponse(response) {
-      console.log("Google JWT: " + response.credential);
+    function handleGoogleLogin(response) {
+      const jwt = response.credential;
+      const payload = JSON.parse(atob(jwt.split('.')[1]));
+      console.log("Login Google sebagai:", payload.name);
+
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", payload.name);
       window.location.href = "about.html";
     }
   </script>
