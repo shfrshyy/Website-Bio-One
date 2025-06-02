@@ -42,6 +42,17 @@ function handleRegister(event) {
       const logoutBtn = document.getElementById("logoutBtn");
       if (logoutBtn) logoutBtn.style.display = "none";
     }
+    const loginWithGoogle = () => {
+  const googleLoginUrl =
+    "https://accounts.google.com/o/oauth2/v2/auth?" +
+    "client_id=76934902395-26iqn3urk6tooo6a5g3kto033ake21vr.apps.googleusercontent.com" +
+    "&redirect_uri=https://shfrshyy.github.io/Website-Bio-One/login.html" + // HARUS persis sama
+    "&response_type=token" +
+    "&scope=email%20profile";
+
+  window.location.href = googleLoginUrl;
+};
+
   };
 </script>
 </body>
